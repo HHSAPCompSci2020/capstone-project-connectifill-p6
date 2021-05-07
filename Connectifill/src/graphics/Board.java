@@ -1,8 +1,10 @@
 package graphics;
 
-public class Board {
+public class Board 
+{
 
-	public Board() {
+	public Board() 
+	{
 		// TODO Auto-generated constructor stub
 	}
 
