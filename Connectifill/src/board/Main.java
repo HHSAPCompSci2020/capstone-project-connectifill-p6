@@ -23,7 +23,6 @@ public class Main {
 		window.setResizable(true);
 
 		window.setVisible(true);
-		
 	}
 
 }
