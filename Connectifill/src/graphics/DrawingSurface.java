@@ -1,4 +1,4 @@
-package rjayant.physicsShapeDemo;
+package graphics;
 import java.awt.Color;
 
 import processing.core.PApplet;
