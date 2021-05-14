@@ -10,7 +10,7 @@ public class Main
 
 		public static void main(String args[]) {
 
-			Board drawing = new Board();
+			Player drawing = new Player();
 			PApplet.runSketch(new String[]{""}, drawing);
 			PSurfaceAWT surf = (PSurfaceAWT) drawing.getSurface();
 			PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();

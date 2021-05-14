@@ -54,6 +54,7 @@ public class Player extends Board
 	public Player()
 	{
 		board = new int[Rows][Columns];
+		redTurn = false;
 	}
 	public int getRow(int column)
 	{
