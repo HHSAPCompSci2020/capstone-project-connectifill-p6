@@ -15,9 +15,12 @@ public class Board extends PApplet {
 	int height = 6;
 	int size = 100;	
 	int[][]board = new int[height][width];
-	public void setup()
+	public void settings()
 	{
 		size(1200,600);
+	}
+	public void setup()
+	{
 		ellipseMode(CORNER);
 	}
 	public void draw() { 
