@@ -1,9 +1,9 @@
 package graphics;
+
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
-import rjayant.shapes.Circle;
 
 public class Game extends PApplet
 {
@@ -57,12 +57,12 @@ public class Game extends PApplet
 					rect(i*standard, j*standard, standard, standard);
 					if (grid[j][i] == 1)
 					{
-						fill(255,0,0);
+						fill(0,255,0);
 						ellipse(i*standard, j*standard, standard, standard);
 					}
 					else if (grid[j][i] == 2)
 					{
-						fill(0,255,0);
+						fill(255,0,0);
 						ellipse(i*standard, j*standard, standard, standard);
 					}
 				}
@@ -78,9 +78,51 @@ public class Game extends PApplet
 	
 	public void mousePressed() {
 		int column = mouseX/standard;
+		add(column, 1);
 	}
 	
-	public void add(int column)
+	public void add(int column, int player)
+	{
+		if (addable(column))
+		{
+			System.out.println("hello");
+			grid[nextOpenRow(column)][column] = player;
+		}
+	}
+	
+	public boolean addable(int column)
+	{
+		int filled = 0;
+		for (int i = grid.length - 1; i >= 0; i--)
+		{
+			if (grid[i][column] != 0)
+			{
+				filled++;
+			}
+		}
+		if (filled == grid.length)
+		{
+			return false;
+		}
+		return true;
+	}
+	
+	public int nextOpenRow(int column)
+	{
+		int filled = 1;
+		for (int i = grid.length - 1; i >= 0; i--)
+		{
+			if (grid[i][column] == 0)
+			{
+				return (grid.length-filled);
+			}
+			if (grid[i][column] != 0)
+			{
+				filled++;
+			}
+		}
+		return grid.length-1;
+	}
 
 	public static void main(String args[])
 	{
