@@ -19,10 +19,16 @@ public class Board extends PApplet {
 	{
 		size(1200,600);
 	}
+	
+	Player boardGame;
 	public void setup()
 	{
 		ellipseMode(CORNER);
+		board[0][0]=1;
+		board[1][1]=2;
+		boardGame = new Player();
 	}
+	
 	public void draw() { 
 		//background(255);
 		for(int i = 0; i<height;i++)
@@ -40,7 +46,7 @@ public class Board extends PApplet {
 		}
 		//textAlign(LEFT);
 		//textSize(12);
-	
-		
+
+
 	}
 }
