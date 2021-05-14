@@ -79,10 +79,11 @@ public class Game extends PApplet
 	}
 	
 	public void mousePressed() {
-		int column = mouseX/standard;
-		add(column, 1);
-		System.out.println("Player: " + getScore(1) + " | Computer: " + getScore(2));
-	}
+        int column = mouseX/standard;
+        add(column, 1);
+        pickRandom();
+        System.out.println("Player: " + getScore(1) + " | Computer: " + getScore(2));
+    }
 	public void add(int column, int player)
 	{
 		if (addable(column))
@@ -151,7 +152,17 @@ public class Game extends PApplet
 		}
 		return grid.length-1;
 	}
-
+	
+	public void pickRandom() {
+        int column = (int) (Math.random() * 12);
+        if (addable(column))
+        {
+            add(column, 2);
+        }
+        else {
+            pickRandom();
+        }
+    }
 	public static void main(String args[])
 	{
 
