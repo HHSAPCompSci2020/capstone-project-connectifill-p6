@@ -116,7 +116,7 @@ public class Game extends PApplet
 			return false;
 		}
 		return true;
-	}
+	} 
 
 	// Do diagonal scoring
 	public int getScore(int player)
