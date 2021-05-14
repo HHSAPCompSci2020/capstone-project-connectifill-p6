@@ -7,18 +7,18 @@ import processing.core.PApplet;
 
 public class Game extends PApplet
 {
-	
+
 	private Menu menu;
 	private Board board;
-	
+
 	private int h;
 	private int w;
 	private int standard;
-	
+
 	private int[][] grid;
-	
+
 	private boolean gameState;
-	
+
 	public Game()
 	{
 		menu = new Menu();
@@ -29,22 +29,22 @@ public class Game extends PApplet
 		standard = 100;
 		grid = new int[6][12];
 	}
-	
+
 	public Menu getMenu()
 	{
 		return menu;
 	}
-	
+
 	public Board getBoard()
 	{
 		return board;
 	}
-	
+
 	public void setup()
 	{
 		ellipseMode(CORNER);
 	}
-	
+
 	public void draw()
 	{
 		if (gameState)
@@ -74,24 +74,33 @@ public class Game extends PApplet
 			fill(255);
 			textAlign(CENTER);
 		}
-		
-		
+
+
 	}
-	
+
 	public void mousePressed() {
-        int column = mouseX/standard;
-        add(column, 1);
-        pickRandom();
-        System.out.println("Player: " + getScore(1) + " | Computer: " + getScore(2));
-    }
-	public void add(int column, int player)
+		int column = mouseX/standard;
+
+		if(add(column, 1))
+		{
+			pickRandom();
+		}
+		System.out.println("Player: " + getScore(1) + " | Computer: " + getScore(2));
+	}
+
+	public boolean add(int column, int player)
 	{
 		if (addable(column))
 		{
 			grid[nextOpenRow(column)][column] = player;
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
-	
+
 	public boolean addable(int column)
 	{
 		int filled = 0;
@@ -108,7 +117,7 @@ public class Game extends PApplet
 		}
 		return true;
 	}
-	
+
 	// Do diagonal scoring
 	public int getScore(int player)
 	{
@@ -135,7 +144,7 @@ public class Game extends PApplet
 		}
 		return score;
 	}
-	
+
 	public int nextOpenRow(int column)
 	{
 		int filled = 1;
@@ -152,17 +161,17 @@ public class Game extends PApplet
 		}
 		return grid.length-1;
 	}
-	
+
 	public void pickRandom() {
-        int column = (int) (Math.random() * 12);
-        if (addable(column))
-        {
-            add(column, 2);
-        }
-        else {
-            pickRandom();
-        }
-    }
+		int column = (int) (Math.random() * 12);
+		if (addable(column))
+		{
+			add(column, 2);
+		}
+		else {
+			pickRandom();
+		}
+	}
 	public static void main(String args[])
 	{
 
