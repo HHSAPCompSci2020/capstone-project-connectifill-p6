@@ -85,7 +85,6 @@ public class Game extends PApplet
 	{
 		if (addable(column))
 		{
-			System.out.println("hello");
 			grid[nextOpenRow(column)][column] = player;
 		}
 	}
