@@ -74,13 +74,15 @@ public class Game extends PApplet
 			fill(255);
 			textAlign(CENTER);
 		}
+		
+		
 	}
 	
 	public void mousePressed() {
 		int column = mouseX/standard;
 		add(column, 1);
+		System.out.println("Player: " + getScore(1) + " | Computer: " + getScore(2));
 	}
-	
 	public void add(int column, int player)
 	{
 		if (addable(column))
@@ -104,6 +106,33 @@ public class Game extends PApplet
 			return false;
 		}
 		return true;
+	}
+	
+	// Do diagonal scoring
+	public int getScore(int player)
+	{
+		int score = 0;
+		for (int i = 0; i <= grid[0].length-4; i++)
+		{
+			for (int j = 0; j < grid.length; j++)
+			{
+				if (grid[j][i] == player && grid[j][i + 1] == player && grid[j][i + 2] == player && grid[j][i + 3] == player)
+				{
+					score++;
+				}
+			}
+		}
+		for (int x = 0; x < grid[0].length; x++)
+		{
+			for (int y = 0; y < grid.length-3; y++)
+			{
+				if (grid[y][x] == player && grid[y + 1][x] == player && grid[y + 2][x] == player && grid[y + 3][x] == player)
+				{
+					score++;
+				}
+			}
+		}
+		return score;
 	}
 	
 	public int nextOpenRow(int column)
