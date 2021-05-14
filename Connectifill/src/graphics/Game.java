@@ -3,6 +3,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
+import rjayant.shapes.Circle;
 
 public class Game extends PApplet
 {
@@ -74,6 +75,12 @@ public class Game extends PApplet
 			textAlign(CENTER);
 		}
 	}
+	
+	public void mousePressed() {
+		int column = mouseX/standard;
+	}
+	
+	public void add(int column)
 
 	public static void main(String args[])
 	{
