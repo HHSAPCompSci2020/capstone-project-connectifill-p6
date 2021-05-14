@@ -12,10 +12,13 @@ public class Player extends Board
 	public static final int EMPTY = 0;
 	public static final int RED = 1;
 	public static final int GREEN = 2;
-	int Rows = 12;
-	int Columns = 6;
-	int width = 12; 
-	int height = 6;
+	int Rows = 6;
+	int Columns = 7;
+	//int width = 5; 
+	//int height = 6;
+	int placerHeight;
+	int placerWidth;
+	int BUFFER = height /7;
 
 	public boolean horizontalWin() {
 		boolean result = false;
@@ -55,6 +58,42 @@ public class Player extends Board
 	{
 		board = new int[Rows][Columns];
 		redTurn = false;
+		placerHeight = (height - BUFFER)/Rows;
+		placerWidth = width / Columns;
+	}
+	public void draw() 
+	{
+		background(255);
+		displayBoard();
+		PlacerPiece();
+	}
+	public void displayBoard()
+	{
+		for(int i = 0; i<height;i++)
+		{
+			for(int j = 0; j<width;j++)
+			{
+				fill(255);
+				rect(j*placerWidth,i*placerHeight+BUFFER, placerWidth, placerHeight);
+				rect(j*size,i*size,size,size);
+				//if(board[i][j] == EMPTY)
+			//	{
+					fill(255);
+				//	fill(board[i][j]==1?255:0 , board[i][j]==2?255:0,0);
+					ellipse(j*placerWidth+ placerWidth/2, i*placerHeight+BUFFER+placerHeight/2,placerHeight-5,placerHeight-5);
+			}
+				//if(board[i][j] == RED)
+				//{
+					//fill(255, 0, 0);
+				//}
+				//if(board[i][j] == GREEN)
+				//{
+					//fill(0, 128, 0);
+				//}
+				//ellipse(j*size,i*size,size,size);
+				//ellipse(j*placerWidth+ placerWidth/2, i*placerHeight+BUFFER+placerHeight/2,placerHeight-5,placerHeight-5);
+			//}
+		}
 	}
 	public int getRow(int column)
 	{
@@ -75,7 +114,7 @@ public class Player extends Board
 		{
 			int column = mouseX/(width / Columns);
 			int row = 0;
-			if(column<Columns)
+			if(column<Columns && board[row][column]==0)
 			{
 				while(row < board.length && board[row][column] ==0)
 				{

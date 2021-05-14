@@ -12,16 +12,21 @@ import processing.core.PApplet;
 public class Board extends PApplet 
 {
 
-	int width = 12; 
-	int height = 6;
+	int width = 6; 
+	int height = 7;
 	int size = 100;	
 	public static final int EMPTY = 0;
 	public static final int RED = 1;
 	public static final int GREEN = 2;
+	int placerHeight;
+	int placerWidth;
+	int BUFFER = height /7;
+	boolean redTurn;
 	int[][]board = new int[height][width];
+	
 	public void settings()
 	{
-		size(1200,600);
+		size(640,480);
 	}
 	
 	Player boardGame;
@@ -37,15 +42,31 @@ public class Board extends PApplet
 	{
 		boardGame.mousePressed();
 	}
+	public void PlacerPiece()
+	{
+		if(redTurn)
+		{
+			fill(255,0,0);
+			ellipse((mouseX/placerWidth)*placerWidth +placerWidth/2, placerHeight/2,placerHeight-5,placerHeight-5);
+		}
+	}
 	public void draw() 
-	{ 
+	{
+		boardGame.draw();
 		//background(255);
+		//displayBoard();
+		//PlacerPiece();
+	}
+	/*
+	public void displayBoard()
+	{
 		for(int i = 0; i<height;i++)
 		{
 			for(int j = 0; j<width;j++)
 			{
 				fill(255);
-				rect(j*size,i*size,size,size);
+				rect(j*placerWidth,i*placerHeight+BUFFER, placerWidth, placerHeight);
+				//rect(j*size,i*size,size,size);
 				if(board[i][j] == EMPTY)
 				{
 					fill(255);
@@ -59,10 +80,12 @@ public class Board extends PApplet
 				{
 					fill(0, 128, 0);
 				}
-				ellipse(j*size,i*size,size,size);
+				//ellipse(j*size,i*size,size,size);
+				ellipse(j*placerWidth+ placerWidth/2, i*placerHeight+BUFFER+placerHeight/2,placerHeight-5,placerHeight-5);
 			}
 		}
+	}
+	*/
 		//textAlign(LEFT);
 		//textSize(12);
-	}
 }
