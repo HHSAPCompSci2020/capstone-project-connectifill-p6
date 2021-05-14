@@ -9,11 +9,15 @@ import processing.core.PApplet;
 
 
 
-public class Board extends PApplet {
+public class Board extends PApplet 
+{
 
 	int width = 12; 
 	int height = 6;
 	int size = 100;	
+	public static final int EMPTY = 0;
+	public static final int RED = 1;
+	public static final int GREEN = 2;
 	int[][]board = new int[height][width];
 	public void settings()
 	{
@@ -29,7 +33,12 @@ public class Board extends PApplet {
 		boardGame = new Player();
 	}
 	
-	public void draw() { 
+	public void mouseClicked()
+	{
+		boardGame.mousePressed();
+	}
+	public void draw() 
+	{ 
 		//background(255);
 		for(int i = 0; i<height;i++)
 		{
@@ -37,16 +46,23 @@ public class Board extends PApplet {
 			{
 				fill(255);
 				rect(j*size,i*size,size,size);
-				if(board[i][j]>0)
+				if(board[i][j] == EMPTY)
 				{
-					fill(board[i][j]==1?255:0 , board[i][j]==2?255:0,0);
-					ellipse(j*size,i*size,size,size);
+					fill(255);
+					//fill(board[i][j]==1?255:0 , board[i][j]==2?255:0,0);
 				}
+				if(board[i][j] == RED)
+				{
+					fill(255, 0, 0);
+				}
+				if(board[i][j] == GREEN)
+				{
+					fill(0, 128, 0);
+				}
+				ellipse(j*size,i*size,size,size);
 			}
 		}
 		//textAlign(LEFT);
 		//textSize(12);
-
-
 	}
 }
