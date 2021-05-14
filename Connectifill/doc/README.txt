@@ -73,10 +73,6 @@ Want-to-have Features:
 
 
 Stretch Features:
-* Generative Models
-   * A model that learns from previous plays and trains on it to become better
-   * Similar to the Google’s Unbeatable Chess Game Bot
-   * This can use the Random player or another model to train and get better
 * Multiplayer Game between Humans Online
    * You can play with any other person with the app installed online
    * Uses APIs and Data Transfer Technology to transmit data live
@@ -101,11 +97,8 @@ Class List:
       * MiniMaxModel
       * CombinedModel
 
-
-
-
 Credits:
-* Rushil Jayant: Worked on README
-* Srikar Gudipati: Worked on README
+* Rushil Jayant: Worked on README, and Game class for GUI
+* Srikar Gudipati: Worked on README, and Game class for placement of tokens and random generation
 * Mr. Shelby: Helping us formulate our ideas
 * Processing: Will serve as our GUI library to design items
