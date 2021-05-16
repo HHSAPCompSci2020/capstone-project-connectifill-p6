@@ -1,9 +1,12 @@
 package models;
 
-public class Model {
+import graphics.Game;
+
+public abstract class Model {
 
 	public Model() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
+	
+	public abstract void makeMove();
 }

@@ -143,5 +143,5 @@ public class Board
 		return score;
 	}
 	
-	
+	// If game has ended
 }

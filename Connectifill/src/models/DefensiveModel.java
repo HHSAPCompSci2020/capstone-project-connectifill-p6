@@ -6,4 +6,10 @@ public class DefensiveModel extends Model {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public void makeMove() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

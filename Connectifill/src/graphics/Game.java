@@ -2,14 +2,17 @@ package graphics;
 
 import java.awt.Dimension;
 import javax.swing.JFrame;
+
+import models.Model;
+import models.RandomModel;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
 public class Game extends PApplet
 {
 
-	private Menu menu;
-	private Board board;
+	private static Board board;
+	private static Model model;
 
 	private int standard;
 
@@ -18,6 +21,7 @@ public class Game extends PApplet
 	public Game()
 	{
 		board = new Board(12, 6);
+		model = new RandomModel();
 		gameState = true;
 		standard = 100;
 	}
@@ -63,20 +67,19 @@ public class Game extends PApplet
 
 		if(board.add(column, 1))
 		{
-			pickRandom();
+			model.makeMove();
 		}
 		System.out.println("Player: " + board.getScore(1) + " | Computer: " + board.getScore(2));
 	}
-
-	public void pickRandom() {
-		int column = (int) (Math.random() * 12);
-		if (board.addable(column))
-		{
-			board.add(column, 2);
-		}
-		else {
-			pickRandom();
-		}
+	
+	public static Board getBoard()
+	{
+		return board;
+	}
+	
+	public static Model getModel()
+	{
+		return model;
 	}
 
 	public static void main(String args[])
