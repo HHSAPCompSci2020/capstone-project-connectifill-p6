@@ -12,7 +12,7 @@ public class RandomModel extends Model {
 	@Override
 	public void makeMove() {
 		Board board = Game.getBoard();
-		int column = (int) (Math.random() * 12);
+		int column = (int) (Math.random() * 24); // Hardcoded
 		if (board.addable(column))
 		{
 			board.add(column, 2);

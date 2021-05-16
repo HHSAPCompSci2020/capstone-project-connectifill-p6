@@ -20,10 +20,10 @@ public class Game extends PApplet
 
 	public Game()
 	{
-		board = new Board(12, 6);
+		board = new Board(24, 12);
 		model = new RandomModel();
 		gameState = true;
-		standard = 100;
+		standard = 50;
 	}
 
 	public void setup()
@@ -60,6 +60,7 @@ public class Game extends PApplet
 			fill(255);
 			textAlign(CENTER);
 		}
+		
 	}
 
 	public void mousePressed() {
