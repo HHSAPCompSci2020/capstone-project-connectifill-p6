@@ -8,8 +8,16 @@ public class DefensiveModel extends Model {
 
 	@Override
 	public void makeMove() {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
+	public void getDefensive(int[] validMoves)
+	{
+		
+	}
+	
+	public int[] checkEmpty(int[] validMoves)
+	{
+		
+	}
 }

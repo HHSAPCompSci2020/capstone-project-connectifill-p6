@@ -8,8 +8,16 @@ public class MiniMaxModel extends Model {
 
 	@Override
 	public void makeMove() {
-		// TODO Auto-generated method stub
-		
+	}
+	
+	public int minimize(int[] weights)
+	{
+		return (Integer) null;
+	}
+	
+	public int maximize(int[] weights)
+	{
+		return (Integer) null;
 	}
 
 }
