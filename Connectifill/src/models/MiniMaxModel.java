@@ -6,7 +6,6 @@ public class MiniMaxModel extends Model {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public void makeMove() {
 	}
 	

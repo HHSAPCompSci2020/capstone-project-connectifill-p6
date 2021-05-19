@@ -9,7 +9,7 @@ public class RandomModel extends Model {
 	{
 		// TODO Auto-generated constructor stub
 	}
-	@Override
+	
 	public void makeMove() {
 		Board board = Game.getBoard();
 		int column = (int) (Math.random() * board.getWidth());

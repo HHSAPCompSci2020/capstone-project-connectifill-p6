@@ -35,11 +35,11 @@ public class Game extends PApplet
 	public void draw()
 	{
 		PFont scoreboard;
-		scoreboard = createFont("Arial",100,true);
+		scoreboard = createFont("SansSerif",100,true);
 		textFont(scoreboard,32); 
 		background(255);
 		fill(0);
-		text("Player: " + board.getScore(1) +" | Computer: " + board.getScore(2),400,700);
+		text("Player: " + board.getScore(1) +" | Computer: " + board.getScore(2),452,650);
 		if (gameState)
 		{
 			for (int j = 0; j < board.getHeight(); j++)
@@ -100,7 +100,7 @@ public class Game extends PApplet
 		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
 		JFrame window = (JFrame)canvas.getFrame();
 
-		window.setSize(1200, 650); // Fix Dimensions
+		window.setSize(1200, 750); // Fix Dimensions
 		window.setMinimumSize(new Dimension(100,100));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);

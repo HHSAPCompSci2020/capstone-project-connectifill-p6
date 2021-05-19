@@ -9,9 +9,9 @@ public abstract class Model {
 	{
 		
 	}
-
-	public void makeMove() {
-		// TODO Auto-generated method stub
+	
+	public void makeMove()
+	{
 		
 	}
 }
