@@ -7,6 +7,7 @@ import models.Model;
 import models.RandomModel;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
+import processing.core.PFont;
 
 public class Game extends PApplet
 {
@@ -64,14 +65,20 @@ public class Game extends PApplet
 		
 	}
 
-	public void mousePressed() {
+	public void mousePressed() 
+	{
 		int column = mouseX/standard;
 
 		if(board.add(column, 1))
 		{
 			model.makeMove();
 		}
-		System.out.println("Player: " + board.getScore(1) + " | Computer: " + board.getScore(2));
+		PFont scoreboard;
+		scoreboard = createFont("Arial",100,true);
+		textFont(scoreboard,32); 
+		background(255);
+		fill(0);
+		text("Player: " + board.getScore(1) +" | Computer: " + board.getScore(2),400,700);
 	}
 	
 	public static Board getBoard()
@@ -97,7 +104,6 @@ public class Game extends PApplet
 		window.setMinimumSize(new Dimension(100,100));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);
-
 		window.setVisible(true);
 	}
 
