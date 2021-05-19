@@ -59,6 +59,7 @@ public class Game extends PApplet
 			background(255);   // Clear the screen with a white background
 			fill(255);
 			textAlign(CENTER);
+			
 		}
 		
 	}
