@@ -5,10 +5,10 @@ import graphics.Game;
 
 public class RandomModel extends Model {
 
-	public RandomModel() {
+	public RandomModel() 
+	{
 		// TODO Auto-generated constructor stub
 	}
-
 	@Override
 	public void makeMove() {
 		Board board = Game.getBoard();

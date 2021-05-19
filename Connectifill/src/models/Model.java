@@ -4,19 +4,14 @@ import graphics.Board;
 import graphics.Game;
 
 public abstract class Model {
-	
-	private Board board;
 
-	public Model() {
-	}
-	
-	public abstract void makeMove();
-	
-	public int[] getValidMoves;
+	public Model() 
 	{
-		for (int i = 0; i < board.getWidth(); i++)
-		{
-			
-		}
+		
+	}
+
+	public void makeMove() {
+		// TODO Auto-generated method stub
+		
 	}
 }

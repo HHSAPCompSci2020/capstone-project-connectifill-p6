@@ -16,7 +16,7 @@ public class DefensiveModel extends Model {
 		
 	}
 	
-	public int[] checkEmpty(int[] validMoves)
+	public void checkEmpty(int[] validMoves)
 	{
 		
 	}
