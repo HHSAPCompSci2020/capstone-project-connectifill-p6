@@ -34,6 +34,12 @@ public class Game extends PApplet
 
 	public void draw()
 	{
+		PFont scoreboard;
+		scoreboard = createFont("Arial",100,true);
+		textFont(scoreboard,32); 
+		background(255);
+		fill(0);
+		text("Player: " + board.getScore(1) +" | Computer: " + board.getScore(2),400,700);
 		if (gameState)
 		{
 			for (int j = 0; j < board.getHeight(); j++)
@@ -73,12 +79,6 @@ public class Game extends PApplet
 		{
 			model.makeMove();
 		}
-		PFont scoreboard;
-		scoreboard = createFont("Arial",100,true);
-		textFont(scoreboard,32); 
-		background(255);
-		fill(0);
-		text("Player: " + board.getScore(1) +" | Computer: " + board.getScore(2),400,700);
 	}
 	
 	public static Board getBoard()
