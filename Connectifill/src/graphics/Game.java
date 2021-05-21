@@ -39,18 +39,19 @@ public class Game extends PApplet
 		textFont(scoreboard,32); 
 		background(255);
 		fill(0);
-		
+		text("Player: " + board.getScore(1) +" | Computer: " + board.getScore(2),452,650);
 		PFont scoreboard1;
 		scoreboard1 = createFont("SansSerif",300,true);
 		textFont(scoreboard1,32); 
 		background(255);
 		fill(0);
-		
+		text("Hi ",500,800);
 		PFont scoreboard2;
 		scoreboard2 = createFont("SansSerif",300,true);
 		textFont(scoreboard2,32); 
 		background(255);
 		fill(0);
+		text("Hi ",500,950);
 		
 		if (gameState)
 		{
