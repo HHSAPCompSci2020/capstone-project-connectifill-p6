@@ -39,7 +39,7 @@ public class Game extends PApplet
 		textFont(scoreboard,32); 
 		background(255);
 		fill(0);
-		text("Player: " + board.getScore(1) +" | Computer: " + board.getScore(2),452,650);
+		
 		if (gameState)
 		{
 			for (int j = 0; j < board.getHeight(); j++)
