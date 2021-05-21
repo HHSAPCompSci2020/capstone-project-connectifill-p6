@@ -40,6 +40,18 @@ public class Game extends PApplet
 		background(255);
 		fill(0);
 		
+		PFont scoreboard1;
+		scoreboard1 = createFont("SansSerif",300,true);
+		textFont(scoreboard1,32); 
+		background(255);
+		fill(0);
+		
+		PFont scoreboard2;
+		scoreboard2 = createFont("SansSerif",300,true);
+		textFont(scoreboard2,32); 
+		background(255);
+		fill(0);
+		
 		if (gameState)
 		{
 			for (int j = 0; j < board.getHeight(); j++)
