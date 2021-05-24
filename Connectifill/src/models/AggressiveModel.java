@@ -14,6 +14,7 @@ public class AggressiveModel extends Model {
 	public void makeMove() {
 		ArrayList<Integer> continuingRows = getContinuingRows();
 		ArrayList<Integer> emptyRows = getEmptyRows();
+		ArrayList<Integer> validRows = getValidRows();
 		if (continuingRows.size() != 0)
 		{
 			Game.getBoard().add(continuingRows.get((int) (Math.random() * continuingRows.size())), 2);
@@ -21,6 +22,10 @@ public class AggressiveModel extends Model {
 		else if (emptyRows.size() != 0)
 		{
 			Game.getBoard().add(emptyRows.get((int) (Math.random() * emptyRows.size())), 2);
+		}
+		else if (validRows.size() != 0)
+		{
+			Game.getBoard().add(validRows.get((int) (Math.random() * validRows.size())), 2);
 		}
 	}
 
@@ -41,6 +46,14 @@ public class AggressiveModel extends Model {
 
 			}
 		}
+
+		return rows;
+	}
+	
+	// COMPLETE THIS METHOD
+	public ArrayList<Integer> getContinuingColumns()
+	{
+		ArrayList<Integer> rows = new ArrayList<Integer>();
 
 		return rows;
 	}
