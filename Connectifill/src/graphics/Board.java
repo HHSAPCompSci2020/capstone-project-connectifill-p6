@@ -144,4 +144,18 @@ public class Board
 	}
 	
 	// If game has ended
+	public boolean isFull()
+	{
+		for (int[] r : grid)
+		{
+			for (int c : r)
+			{
+				if (c == 0)
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 }
