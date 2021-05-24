@@ -11,11 +11,17 @@ public class DefensiveModel extends Model {
 	}
 
 	public void makeMove() {
+		ArrayList<Integer> imminentColumns = getImminent();
 		ArrayList<Integer> defensiveRows = getDefensiveRows();
 		ArrayList<Integer> defensiveColumns = getDefensiveColumns();
 		ArrayList<Integer> aggressiveRows = getContinuingRows();
 		ArrayList<Integer> validRows = getValidRows();
-		if (defensiveRows.size() != 0)
+		
+		if (imminentColumns.size() != 0)
+		{
+			Game.getBoard().add(imminentColumns.get((int) (Math.random() * imminentColumns.size())), 2);
+		}
+		else if (defensiveRows.size() != 0)
 		{
 			Game.getBoard().add(defensiveRows.get((int) (Math.random() * defensiveRows.size())), 2);
 		}
@@ -54,23 +60,87 @@ public class DefensiveModel extends Model {
 	{
 		ArrayList<Integer> columns = new ArrayList<Integer>();
 		
-		int enemies = 0;
-		
 		for (int[] r : Game.getBoard().getGrid())
 		{
 			for (int i = 0; i < r.length; i++)
 			{
 				if (r[i] == 0)
 				{
-					// Check Left
-					
-					// Check Right
+					if (checkRight(r, i) + checkLeft(r, i) >= 3)
+					{
+						columns.add(i);
+					}
 				}
 			}
 		}
 		
 		return columns;
 	}
+	
+	private int checkRight(int[] r , int i)
+	{
+		int count = 0;
+		try
+		{
+			if (r[i + 1] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+		
+		try
+		{
+			if (r[i + 2] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+		try
+		{
+			if (r[i + 3] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+	
+		return count;
+	
+	}
+	
+	private int checkLeft(int[] r , int i)
+	{
+		int count = 0;
+		try
+		{
+			if (r[i - 1] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+		
+		try
+		{
+			if (r[i - 2] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+		try
+		{
+			if (r[i - 3] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+	
+		return count;
+	
+	}
+	
+	{
+		Game.getBoard();
+	}
+	
 	public ArrayList<Integer> getDefensiveColumns()
 	{
 		ArrayList<Integer> columns = new ArrayList<Integer>();
