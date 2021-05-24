@@ -1,5 +1,9 @@
 package models;
 
+import java.util.ArrayList;
+
+import graphics.Game;
+
 public class AggressiveModel extends Model {
 
 	public AggressiveModel() {
@@ -8,8 +12,51 @@ public class AggressiveModel extends Model {
 
 	@Override
 	public void makeMove() {
-		// TODO Auto-generated method stub
-		
+		ArrayList<Integer> continuingRows = getContinuingRows();
+		ArrayList<Integer> emptyRows = getEmptyRows();
+		if (continuingRows.size() != 0)
+		{
+			Game.getBoard().add(continuingRows.get((int) (Math.random() * continuingRows.size())), 2);
+		}
+		else if (emptyRows.size() != 0)
+		{
+			Game.getBoard().add(emptyRows.get((int) (Math.random() * emptyRows.size())), 2);
+		}
 	}
 
+	public ArrayList<Integer> getContinuingRows()
+	{
+		ArrayList<Integer> rows = new ArrayList<Integer>();
+
+		for (int i : getValidRows())
+		{
+			try
+			{
+				if (Game.getBoard().getGrid()[Game.getBoard().nextOpenRow(i)+1][i] == 2)
+				{
+					rows.add(i);
+				}
+			} catch (ArrayIndexOutOfBoundsException ex)
+			{
+
+			}
+		}
+
+		return rows;
+	}
+
+	public ArrayList<Integer> getEmptyRows()
+	{
+		ArrayList<Integer> rows = new ArrayList<Integer>();
+
+		for (int i : getValidRows())
+		{
+			if (Game.getBoard().getGrid()[Game.getBoard().getGrid().length-1][i] == 0)
+			{
+				rows.add(i);
+			}
+		}
+
+		return rows;
+	}
 }

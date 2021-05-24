@@ -1,9 +1,13 @@
 package models;
 
+import graphics.Game;
+
 public class MiniMaxModel extends Model {
+	
+	private int[][] gridCopy;
 
 	public MiniMaxModel() {
-		// TODO Auto-generated constructor stub
+		gridCopy = Game.getBoard().getGrid();
 	}
 
 	public void makeMove() {

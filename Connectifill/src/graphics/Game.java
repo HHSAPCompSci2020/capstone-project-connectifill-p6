@@ -3,6 +3,7 @@ package graphics;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 
+import models.AggressiveModel;
 import models.Model;
 import models.RandomModel;
 import processing.awt.PSurfaceAWT;
@@ -22,7 +23,7 @@ public class Game extends PApplet
 	public Game()
 	{
 		board = new Board(24, 12);
-		model = new RandomModel();
+		model = new AggressiveModel();
 		gameState = true;
 		standard = 50;
 	}
