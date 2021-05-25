@@ -9,24 +9,24 @@ public class MiniMaxModel extends Model {
 
 	public MiniMaxModel() {
 		grid = Game.getBoard().getGrid();
-		depth = 3;
+		depth = 2;
 	}
 
 	public void makeMove() 
 	{
+		grid = Game.getBoard().getGrid();
 		int[] minimax = minimax(1, depth, grid);
 		int location = 0;
-		int max = Integer.MIN_VALUE;
-
+		int max = 0;
 		for (int i = 0; i < minimax.length; i++)
 		{
-			if (minimax[i] > max)
+//			System.out.print(minimax[i] + " ");
+			if (minimax[i] >= max)
 			{
 				max = minimax[i];
 				location = i;
 			}
 		}
-
 		Game.getBoard().add(location, 2);
 		grid = Game.getBoard().getGrid();
 	}
@@ -38,13 +38,20 @@ public class MiniMaxModel extends Model {
 		{
 			if (depth == 0)
 			{
-				if (state == 1)
+				if (addable(i, grid))
 				{
-					weights[i] = scoreFunction(grid, add(i, 2, grid));
+					if (state == 1)
+					{
+						weights[i] = getScore(2, add(i, 2, grid));
+					}
+					if (state == 0)
+					{
+						weights[i] = getScore(1, add(i, 1, grid));
+					}
 				}
-				if (state == 0)
+				else
 				{
-					weights[i] = scoreFunction(grid, add(i, 1, grid));
+					weights[i] = -1;
 				}
 			}
 			else 
@@ -53,25 +60,19 @@ public class MiniMaxModel extends Model {
 				{
 					if (state == 1)
 					{
-						weights[i] = minimize(minimax(state, depth -1, add(i, 2, grid)));
+						weights[i] = maximize(minimax(0, depth - 1, add(i, 2, grid)));
 					}
 					if (state == 0)
 					{
-						weights[i] = maximize(minimax(state, depth -1, add(i, 1, grid)));
+						weights[i] = minimize(minimax(1, depth - 1, add(i, 1, grid)));
 					}
 				}
-				else 
+				else
 				{
-					if (state == 1)
-					{
-						weights[i] = Integer.MIN_VALUE;
-					}
-					if (state == 0)
-					{
-						weights[i] = Integer.MAX_VALUE;
-					}
+					weights[i] = -1;
 				}
 			}
+
 		}
 		return weights;
 	}
@@ -81,9 +82,12 @@ public class MiniMaxModel extends Model {
 		int min = Integer.MAX_VALUE;
 		for (int i : weights)
 		{
-			if (i < min)
+			if (i != -1)
 			{
-				min = i;
+				if (i < min)
+				{
+					min = i;
+				}
 			}
 		}
 
@@ -100,9 +104,12 @@ public class MiniMaxModel extends Model {
 		int max = Integer.MIN_VALUE;
 		for (int i : weights)
 		{
-			if (i > max)
+			if (i != -1)
 			{
-				max = i;
+				if (i > max)
+				{
+					max = i;
+				}
 			}
 		}
 

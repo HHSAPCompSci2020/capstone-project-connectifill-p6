@@ -97,6 +97,10 @@ public class DefensiveModel extends Model {
 			{
 				count++;
 			}
+			else
+			{
+				return count;
+			}
 		} catch (ArrayIndexOutOfBoundsException ex) {}
 		
 		try
@@ -105,12 +109,20 @@ public class DefensiveModel extends Model {
 			{
 				count++;
 			}
+			else
+			{
+				return count;
+			}
 		} catch (ArrayIndexOutOfBoundsException ex) {}
 		try
 		{
 			if (r[i + 3] == 1)
 			{
 				count++;
+			}
+			else
+			{
+				return count;
 			}
 		} catch (ArrayIndexOutOfBoundsException ex) {}
 	
@@ -127,6 +139,10 @@ public class DefensiveModel extends Model {
 			{
 				count++;
 			}
+			else
+			{
+				return count;
+			}
 		} catch (ArrayIndexOutOfBoundsException ex) {}
 		
 		try
@@ -135,12 +151,20 @@ public class DefensiveModel extends Model {
 			{
 				count++;
 			}
+			else
+			{
+				return count;
+			}
 		} catch (ArrayIndexOutOfBoundsException ex) {}
 		try
 		{
 			if (r[i - 3] == 1)
 			{
 				count++;
+			}
+			else
+			{
+				return count;
 			}
 		} catch (ArrayIndexOutOfBoundsException ex) {}
 	
