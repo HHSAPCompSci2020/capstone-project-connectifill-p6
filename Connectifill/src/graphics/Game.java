@@ -25,7 +25,7 @@ public class Game extends PApplet
 	private boolean gameState;
 
 	/**
-	 * 
+	 * Constructor for the game class
 	 */
 	public Game()
 	{
@@ -35,7 +35,7 @@ public class Game extends PApplet
 	}
 
 	/**
-	 * 
+	 * ellipseMode setup 
 	 */
 	public void setup()
 	{
@@ -43,7 +43,7 @@ public class Game extends PApplet
 	}
 
 	/**
-	 * 
+	 * Draws scoreboard and ellipses in differnt colors
 	 */
 	public void draw()
 	{
@@ -90,7 +90,7 @@ public class Game extends PApplet
 	}
 
 	/**
-	 * 
+	 * Checks if mouse is pressed and places ellipse there 
 	 */
 	public void mousePressed() 
 	{
@@ -103,7 +103,7 @@ public class Game extends PApplet
 	}
 
 	/**
-	 * 
+	 * gets the Board class
 	 * @return
 	 */
 	public static Board getBoard()
@@ -112,7 +112,7 @@ public class Game extends PApplet
 	}
 
 	/**
-	 * 
+	 * gets the model class
 	 * @return
 	 */
 	public static Model getModel()
@@ -121,7 +121,7 @@ public class Game extends PApplet
 	}
 
 	/**
-	 * 
+	 * Menu GUI
 	 * @param args
 	 */
 	public static void main(String args[])

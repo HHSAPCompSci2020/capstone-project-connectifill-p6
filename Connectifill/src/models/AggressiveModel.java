@@ -7,7 +7,7 @@ import graphics.Game;
 public class AggressiveModel extends Model {
 	
 	/**
-	 * 
+	 * The method makes a aggressive move on this model 
 	 */
 	public void makeMove() {
 		ArrayList<Integer> imminentColumns = getImminent();
@@ -34,7 +34,7 @@ public class AggressiveModel extends Model {
 	}
 
 	/**
-	 * 
+	 * The method finds the next open row
 	 * @return
 	 */
 	private ArrayList<Integer> getImminent()

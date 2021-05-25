@@ -11,7 +11,7 @@ public abstract class Model {
 	public void makeMove() {}
 	
 	/**
-	 * 
+	 * Finds the number of valid rows in the gmae
 	 * @return
 	 */
 	public ArrayList<Integer> getValidRows()

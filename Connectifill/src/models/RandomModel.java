@@ -5,6 +5,9 @@ import graphics.Game;
 
 public class RandomModel extends Model {
 	
+	/**
+	 * Randomly makes a move
+	 */
 	public void makeMove() {
 		Board board = Game.getBoard();
 		int column = (int) (Math.random() * board.getWidth());
