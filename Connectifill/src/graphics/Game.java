@@ -75,6 +75,10 @@ public class Game extends PApplet
 					}
 				}
 			}
+			fill(125,0,0);
+			rect(100, 600, 100, 100);
+			fill(255);
+			text("Help", 100, 650);
 		}
 		else
 		{
@@ -96,10 +100,14 @@ public class Game extends PApplet
 	{
 		int column = mouseX/standard;
 
-		if(board.add(column, 1))
+		if(board.add(column, 1) && mouseY<650)
 		{
 			model.makeMove();
 		}
+		
+		if (mouseX < 200 && mouseX > 100 && mouseY > 600 && mouseY< 700) { 
+		    link("https://docs.google.com/document/d/14lbt37KhIhXnFsPgqDD7QW8QP_xLOQALNAtSf79fd3c/edit?usp=sharing");
+		  }
 	}
 
 	/**
