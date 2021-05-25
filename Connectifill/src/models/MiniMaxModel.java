@@ -8,13 +8,15 @@ public class MiniMaxModel extends Model {
 	private int depth; 
 
 	/**
-	 * 
+	 * Constructor for class initializing grid and depth
 	 */
 	public MiniMaxModel() {
 		grid = Game.getBoard().getGrid();
 		depth = 2;
 	}
-
+	/**
+	 * Makes a certain move
+	 */
 	public void makeMove() 
 	{
 		grid = Game.getBoard().getGrid();
