@@ -101,7 +101,7 @@ Credits:
 <<<<<<< Updated upstream
 * Rushil Jayant: Worked on README, and Game class for GUI, finished models and menu
 * Srikar Gudipati: Worked on README, and Game class for placement of tokens and random generation, worked on models and menu
-=======
+======
 <<<<<<< HEAD
 * Rushil Jayant
    * Worked on README
@@ -118,7 +118,7 @@ Credits:
    * Created the Board Design and GUI Functionality
    * Restructured Files
    * Finished the Game Class
-=======
+======
 * Rushil Jayant: Worked on README, and Game class for GUI, finished models and menu
 * Srikar Gudipati: Worked on README, and Game class for placement of tokens and random generation, worked on models and menu
 >>>>>>> 1df04a5c224535b0bf0a0147c262173764a00210
