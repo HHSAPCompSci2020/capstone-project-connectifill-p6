@@ -5,12 +5,14 @@ public class CombinedModel extends Model {
 	private AggressiveModel aggressiveModel;
 	private DefensiveModel defensiveModel;
 
+	/**
+	 * 
+	 */
 	public CombinedModel() {
 		aggressiveModel = new AggressiveModel();
 		defensiveModel = new DefensiveModel();
 	}
 
-	@Override
 	public void makeMove() {
 		int random = (int) Math.random() * 2;
 		if (random == 0)

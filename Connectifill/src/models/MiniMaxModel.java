@@ -7,6 +7,9 @@ public class MiniMaxModel extends Model {
 	private int[][] grid;
 	private int depth; 
 
+	/**
+	 * 
+	 */
 	public MiniMaxModel() {
 		grid = Game.getBoard().getGrid();
 		depth = 2;
@@ -20,7 +23,6 @@ public class MiniMaxModel extends Model {
 		int max = 0;
 		for (int i = 0; i < minimax.length; i++)
 		{
-//			System.out.print(minimax[i] + " ");
 			if (minimax[i] >= max)
 			{
 				max = minimax[i];
@@ -31,6 +33,13 @@ public class MiniMaxModel extends Model {
 		grid = Game.getBoard().getGrid();
 	}
 
+	/**
+	 * 
+	 * @param state
+	 * @param depth
+	 * @param grid
+	 * @return
+	 */
 	public int[] minimax(int state, int depth, int[][] grid)
 	{
 		int[] weights = new int[grid[0].length];
@@ -77,7 +86,12 @@ public class MiniMaxModel extends Model {
 		return weights;
 	}
 
-	public int minimize(int[] weights)
+	/**
+	 * 
+	 * @param weights
+	 * @return
+	 */
+	private int minimize(int[] weights)
 	{
 		int min = Integer.MAX_VALUE;
 		for (int i : weights)
@@ -94,12 +108,12 @@ public class MiniMaxModel extends Model {
 		return min;
 	}
 
-	private int scoreFunction(int[][] oldGrid, int[][] newGrid)
-	{
-		return (getScore(2, newGrid) - getScore(1, newGrid)) - (getScore(2, oldGrid) - getScore(1, oldGrid));
-	}
-
-	public int maximize(int[] weights)
+	/**
+	 * 
+	 * @param weights
+	 * @return
+	 */
+	private int maximize(int[] weights)
 	{
 		int max = Integer.MIN_VALUE;
 		for (int i : weights)
@@ -116,21 +130,11 @@ public class MiniMaxModel extends Model {
 		return max;
 	}
 
-	private boolean isFull(int[][] grid)
-	{
-		for (int[] r : grid)
-		{
-			for (int c : r)
-			{
-				if (c == 0)
-				{
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
+	/**
+	 * 
+	 * @param oldGrid
+	 * @return
+	 */
 	private int[][] clone(int[][] oldGrid)
 	{
 		int[][] grid = new int[oldGrid.length][oldGrid[0].length];
@@ -145,7 +149,14 @@ public class MiniMaxModel extends Model {
 		return grid;
 	}
 
-	public int[][] add(int column, int player, int[][] oldGrid)
+	/**
+	 * 
+	 * @param column
+	 * @param player
+	 * @param oldGrid
+	 * @return
+	 */
+	private int[][] add(int column, int player, int[][] oldGrid)
 	{
 		int[][] grid = clone(oldGrid);
 
@@ -154,7 +165,13 @@ public class MiniMaxModel extends Model {
 		return grid;
 	}
 
-	public boolean addable(int column, int[][] grid)
+	/**
+	 * 
+	 * @param column
+	 * @param grid
+	 * @return
+	 */
+	private boolean addable(int column, int[][] grid)
 	{
 		int filled = 0;
 		for (int i = grid.length - 1; i >= 0; i--)
@@ -171,7 +188,13 @@ public class MiniMaxModel extends Model {
 		return true;
 	} 
 
-	public int nextOpenRow(int column, int[][] grid)
+	/**
+	 * 
+	 * @param column
+	 * @param grid
+	 * @return
+	 */
+	private int nextOpenRow(int column, int[][] grid)
 	{
 		int filled = 1;
 		for (int i = grid.length - 1; i >= 0; i--)
@@ -188,11 +211,23 @@ public class MiniMaxModel extends Model {
 		return grid.length-1;
 	}
 
-	public int getScore(int player, int[][] grid)
+	/**
+	 * 
+	 * @param player
+	 * @param grid
+	 * @return
+	 */
+	private int getScore(int player, int[][] grid)
 	{
 		return getHorizontalScore(player, grid) + getVerticalScore(player, grid) + getDiagonalScore(player, grid);
 	}
 
+	/**
+	 * 
+	 * @param player
+	 * @param grid
+	 * @return
+	 */
 	private int getHorizontalScore(int player, int[][] grid)
 	{
 		int score = 0;
@@ -209,6 +244,12 @@ public class MiniMaxModel extends Model {
 		return score;
 	}
 
+	/**
+	 * 
+	 * @param player
+	 * @param grid
+	 * @return
+	 */
 	private int getVerticalScore(int player, int[][] grid)
 	{
 		int score = 0;
@@ -225,6 +266,12 @@ public class MiniMaxModel extends Model {
 		return score;
 	}
 
+	/**
+	 * 
+	 * @param player
+	 * @param grid
+	 * @return
+	 */
 	private int getDiagonalScore(int player, int[][] grid)
 	{
 		int score = 0;

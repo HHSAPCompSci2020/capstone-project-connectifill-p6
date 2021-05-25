@@ -5,11 +5,7 @@ import java.util.ArrayList;
 import graphics.Game;
 
 public class DefensiveModel extends Model {
-
-	public DefensiveModel() {
-		// TODO Auto-generated constructor stub
-	}
-
+	
 	public void makeMove() {
 		ArrayList<Integer> imminentColumns = getImminent();
 		ArrayList<Integer> defensiveRows = getDefensiveRows();
@@ -39,7 +35,11 @@ public class DefensiveModel extends Model {
 		}
 	}
 
-	public ArrayList<Integer> getDefensiveRows()
+	/**
+	 * 
+	 * @return
+	 */
+	private ArrayList<Integer> getDefensiveRows()
 	{
 		ArrayList<Integer> columns = new ArrayList<Integer>();
 
@@ -56,7 +56,11 @@ public class DefensiveModel extends Model {
 		return columns;
 	}
 
-	public ArrayList<Integer> getImminent()
+	/**
+	 * 
+	 * @return
+	 */
+	private ArrayList<Integer> getImminent()
 	{
 		ArrayList<Integer> columns = new ArrayList<Integer>();
 
@@ -88,6 +92,12 @@ public class DefensiveModel extends Model {
 		return columns;
 	}
 	
+	/**
+	 * 
+	 * @param r
+	 * @param i
+	 * @return
+	 */
 	private int checkRight(int[] r , int i)
 	{
 		int count = 0;
@@ -130,6 +140,12 @@ public class DefensiveModel extends Model {
 	
 	}
 	
+	/**
+	 * 
+	 * @param r
+	 * @param i
+	 * @return
+	 */
 	private int checkLeft(int[] r , int i)
 	{
 		int count = 0;
@@ -172,11 +188,11 @@ public class DefensiveModel extends Model {
 	
 	}
 	
-	{
-		Game.getBoard();
-	}
-	
-	public ArrayList<Integer> getDefensiveColumns()
+	/**
+	 * 
+	 * @return
+	 */
+	private ArrayList<Integer> getDefensiveColumns()
 	{
 		ArrayList<Integer> columns = new ArrayList<Integer>();
 
@@ -193,7 +209,11 @@ public class DefensiveModel extends Model {
 		return columns;
 	}
 
-	public ArrayList<Integer> getContinuingRows()
+	/**
+	 * 
+	 * @return
+	 */
+	private ArrayList<Integer> getContinuingRows()
 	{
 		ArrayList<Integer> rows = new ArrayList<Integer>();
 

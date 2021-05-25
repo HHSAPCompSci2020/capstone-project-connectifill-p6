@@ -5,12 +5,10 @@ import java.util.ArrayList;
 import graphics.Game;
 
 public class AggressiveModel extends Model {
-
-	public AggressiveModel() {
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
+	
+	/**
+	 * 
+	 */
 	public void makeMove() {
 		ArrayList<Integer> imminentColumns = getImminent();
 		ArrayList<Integer> continuingRows = getContinuingRows();
@@ -35,7 +33,11 @@ public class AggressiveModel extends Model {
 		}
 	}
 
-	public ArrayList<Integer> getImminent()
+	/**
+	 * 
+	 * @return
+	 */
+	private ArrayList<Integer> getImminent()
 	{
 		ArrayList<Integer> columns = new ArrayList<Integer>();
 
@@ -67,6 +69,12 @@ public class AggressiveModel extends Model {
 		return columns;
 	}
 
+	/**
+	 * 
+	 * @param r
+	 * @param i
+	 * @return
+	 */
 	private int checkRight(int[] r , int i)
 	{
 		int count = 0;
@@ -109,6 +117,12 @@ public class AggressiveModel extends Model {
 
 	}
 
+	/**
+	 * 
+	 * @param r
+	 * @param i
+	 * @return
+	 */
 	private int checkLeft(int[] r , int i)
 	{
 		int count = 0;
@@ -151,11 +165,11 @@ public class AggressiveModel extends Model {
 
 	}
 
-	{
-		Game.getBoard();
-	}
-
-	public ArrayList<Integer> getContinuingRows()
+	/**
+	 * 
+	 * @return
+	 */
+	private ArrayList<Integer> getContinuingRows()
 	{
 		ArrayList<Integer> rows = new ArrayList<Integer>();
 
@@ -176,15 +190,11 @@ public class AggressiveModel extends Model {
 		return rows;
 	}
 
-	// COMPLETE THIS METHOD
-	public ArrayList<Integer> getContinuingColumns()
-	{
-		ArrayList<Integer> rows = new ArrayList<Integer>();
-
-		return rows;
-	}
-
-	public ArrayList<Integer> getEmptyRows()
+	/**
+	 * 
+	 * @return
+	 */
+	private ArrayList<Integer> getEmptyRows()
 	{
 		ArrayList<Integer> rows = new ArrayList<Integer>();
 

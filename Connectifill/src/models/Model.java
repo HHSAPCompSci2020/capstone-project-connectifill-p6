@@ -1,22 +1,19 @@
 package models;
 
 import java.util.ArrayList;
-
-import graphics.Board;
 import graphics.Game;
 
 public abstract class Model {
-
-	public Model() 
-	{
-		
-	}
 	
-	public void makeMove()
-	{
-		
-	}
+	/**
+	 * 
+	 */
+	public void makeMove() {}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<Integer> getValidRows()
 	{
 		ArrayList<Integer> validRows = new ArrayList<Integer>();

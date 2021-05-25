@@ -4,11 +4,6 @@ import graphics.Board;
 import graphics.Game;
 
 public class RandomModel extends Model {
-
-	public RandomModel() 
-	{
-		// TODO Auto-generated constructor stub
-	}
 	
 	public void makeMove() {
 		Board board = Game.getBoard();

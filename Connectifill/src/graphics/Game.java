@@ -24,6 +24,9 @@ public class Game extends PApplet
 
 	private boolean gameState;
 
+	/**
+	 * 
+	 */
 	public Game()
 	{
 		board = new Board(24, 12);
@@ -31,11 +34,17 @@ public class Game extends PApplet
 		standard = 50;
 	}
 
+	/**
+	 * 
+	 */
 	public void setup()
 	{
 		ellipseMode(CORNER);
 	}
 
+	/**
+	 * 
+	 */
 	public void draw()
 	{
 		PFont scoreboard;
@@ -72,11 +81,17 @@ public class Game extends PApplet
 			background(255);   // Clear the screen with a white background
 			fill(255);
 			textAlign(CENTER);
-
+			if (board.isFull())
+			{
+				gameState = false;
+			}
 		}
 
 	}
 
+	/**
+	 * 
+	 */
 	public void mousePressed() 
 	{
 		int column = mouseX/standard;
@@ -87,16 +102,28 @@ public class Game extends PApplet
 		}
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public static Board getBoard()
 	{
 		return board;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public static Model getModel()
 	{
 		return model;
 	}
 
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String args[])
 	{
 		String[] options = {"Random Model", "MiniMax Model", "Defensive Model", "Combined Model", "Aggressive Model"};

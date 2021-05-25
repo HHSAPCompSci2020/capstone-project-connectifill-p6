@@ -6,6 +6,12 @@ public class Board
 	private int w;
 	private int h;
 	
+	
+	/**
+	 * 
+	 * @param width
+	 * @param height
+	 */
 	public Board(int width, int height)
 	{
 		w = width;
@@ -13,31 +19,60 @@ public class Board
 		grid = new int[height][width];
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getWidth()
 	{
 		return w;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getHeight()
 	{
 		return h;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int[][] getGrid()
 	{
 		return grid;
 	}
 	
+	/**
+	 * 
+	 * @param c
+	 * @param r
+	 * @return
+	 */
 	public int getValue(int c, int r)
 	{
 		return grid[c][r];
 	}
 	
+	/**
+	 * 
+	 * @param player
+	 * @return
+	 */
 	public int getScore(int player)
 	{
 		return getHorizontalScore(player) + getVerticalScore(player) + getDiagonalScore(player);
 	}
 	
+	/**
+	 * 
+	 * @param column
+	 * @param player
+	 * @return
+	 */
 	public boolean add(int column, int player)
 	{
 		if (addable(column))
@@ -51,6 +86,11 @@ public class Board
 		}
 	}
 	
+	/**
+	 * 
+	 * @param column
+	 * @return
+	 */
 	public boolean addable(int column)
 	{
 		int filled = 0;
@@ -68,6 +108,11 @@ public class Board
 		return true;
 	} 
 	
+	/**
+	 * 
+	 * @param column
+	 * @return
+	 */
 	public int nextOpenRow(int column)
 	{
 		int filled = 1;
@@ -85,6 +130,11 @@ public class Board
 		return grid.length-1;
 	}
 	
+	/**
+	 * 
+	 * @param player
+	 * @return
+	 */
 	private int getHorizontalScore(int player)
 	{
 		int score = 0;
@@ -101,6 +151,11 @@ public class Board
 		return score;
 	}
 	
+	/**
+	 * 
+	 * @param player
+	 * @return
+	 */
 	private int getVerticalScore(int player)
 	{
 		int score = 0;
@@ -117,6 +172,11 @@ public class Board
 		return score;
 	}
 	
+	/**
+	 * 
+	 * @param player
+	 * @return
+	 */
 	private int getDiagonalScore(int player)
 	{
 		int score = 0;
@@ -143,7 +203,10 @@ public class Board
 		return score;
 	}
 	
-	// If game has ended
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean isFull()
 	{
 		for (int[] r : grid)
