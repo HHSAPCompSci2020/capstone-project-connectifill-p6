@@ -2,6 +2,11 @@ package models;
 
 import graphics.Game;
 
+/**
+ * This represents a MiniMax model that looks 3 steps ahead and maximizes the score of the computer while minimizing the score of the human player
+ * @author Rushil Jayant
+ * @version 5/25/21
+ */
 public class MiniMaxModel extends Model {
 
 	private int[][] grid;
@@ -37,10 +42,10 @@ public class MiniMaxModel extends Model {
 
 	/**
 	 * 
-	 * @param state
-	 * @param depth
-	 * @param grid
-	 * @return
+	 * @param state - If it needs to maximize state is 1, if it needs to minimize state is 0
+	 * @param depth - How many moves ahead should the model think
+	 * @param grid - Grid to add pieces
+	 * @return An Integer Array of Weights determined by the scores of each move
 	 */
 	public int[] minimax(int state, int depth, int[][] grid)
 	{
@@ -71,11 +76,11 @@ public class MiniMaxModel extends Model {
 				{
 					if (state == 1)
 					{
-						weights[i] = maximize(minimax(0, depth - 1, add(i, 2, grid)));
+						weights[i] = minimize(minimax(0, depth - 1, add(i, 2, grid)));
 					}
 					if (state == 0)
 					{
-						weights[i] = minimize(minimax(1, depth - 1, add(i, 1, grid)));
+						weights[i] = maximize(minimax(1, depth - 1, add(i, 1, grid)));
 					}
 				}
 				else
@@ -90,8 +95,8 @@ public class MiniMaxModel extends Model {
 
 	/**
 	 * 
-	 * @param weights
-	 * @return
+	 * @param weights 
+	 * @return Minimum of weights
 	 */
 	private int minimize(int[] weights)
 	{
@@ -113,7 +118,7 @@ public class MiniMaxModel extends Model {
 	/**
 	 * 
 	 * @param weights
-	 * @return
+	 * @return Maximum of weights
 	 */
 	private int maximize(int[] weights)
 	{
@@ -135,7 +140,7 @@ public class MiniMaxModel extends Model {
 	/**
 	 * 
 	 * @param oldGrid
-	 * @return
+	 * @return Copy of Grid
 	 */
 	private int[][] clone(int[][] oldGrid)
 	{
@@ -153,10 +158,10 @@ public class MiniMaxModel extends Model {
 
 	/**
 	 * 
-	 * @param column
-	 * @param player
-	 * @param oldGrid
-	 * @return
+	 * @param column - Column the pieces are added
+	 * @param player - Player that is adding the pieces 
+	 * @param oldGrid - Grid where piece will be added
+	 * @return New Grid with Added Piece
 	 */
 	private int[][] add(int column, int player, int[][] oldGrid)
 	{
@@ -169,9 +174,9 @@ public class MiniMaxModel extends Model {
 
 	/**
 	 * 
-	 * @param column
-	 * @param grid
-	 * @return
+	 * @param column - Column to test if pieces can be added
+	 * @param grid - Grid to test if things will be added
+	 * @return If a piece can be added
 	 */
 	private boolean addable(int column, int[][] grid)
 	{
@@ -192,9 +197,9 @@ public class MiniMaxModel extends Model {
 
 	/**
 	 * 
-	 * @param column
-	 * @param grid
-	 * @return
+	 * @param column - Column to see where to add items
+	 * @param grid - Grid to use to check this
+	 * @return Next Open Row
 	 */
 	private int nextOpenRow(int column, int[][] grid)
 	{
@@ -215,9 +220,9 @@ public class MiniMaxModel extends Model {
 
 	/**
 	 * 
-	 * @param player
-	 * @param grid
-	 * @return
+	 * @param player - Player that will be scored
+	 * @param grid - Grid to be used for scoring
+	 * @return Score of the Player
 	 */
 	private int getScore(int player, int[][] grid)
 	{
@@ -226,9 +231,9 @@ public class MiniMaxModel extends Model {
 
 	/**
 	 * 
-	 * @param player
-	 * @param grid
-	 * @return
+	 * @param player - 1 if Human, 2 if Computer
+	 * @param grid - Grid used to calculate the score
+	 * @return Horizontal Score
 	 */
 	private int getHorizontalScore(int player, int[][] grid)
 	{
@@ -248,9 +253,9 @@ public class MiniMaxModel extends Model {
 
 	/**
 	 * 
-	 * @param player
-	 * @param grid
-	 * @return
+	 * @param player - 1 if Human, 2 if Computer
+	 * @param grid - Grid used to calculate the score
+	 * @return Vertical Score
 	 */
 	private int getVerticalScore(int player, int[][] grid)
 	{
@@ -270,9 +275,9 @@ public class MiniMaxModel extends Model {
 
 	/**
 	 * 
-	 * @param player
-	 * @param grid
-	 * @return
+	 * @param player - 1 if Human, 2 if Computer
+	 * @param grid - Grid used to calculate the score
+	 * @return Diagonal Score
 	 */
 	private int getDiagonalScore(int player, int[][] grid)
 	{

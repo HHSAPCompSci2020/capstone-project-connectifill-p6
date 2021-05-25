@@ -14,6 +14,11 @@ import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 import processing.core.PFont;
 
+/**
+ * This is the Game class which represents the Main GUI for the Connectifill Game
+ * @author Srikar Gudipati
+ * @version 5/25/21
+ */
 public class Game extends PApplet
 {
 
@@ -25,7 +30,7 @@ public class Game extends PApplet
 	private boolean gameState;
 
 	/**
-	 * Constructor for the game class
+	 * Constructor for the Game class
 	 */
 	public Game()
 	{
@@ -104,7 +109,7 @@ public class Game extends PApplet
 
 	/**
 	 * gets the Board class
-	 * @return
+	 * @return Board
 	 */
 	public static Board getBoard()
 	{
@@ -113,7 +118,7 @@ public class Game extends PApplet
 
 	/**
 	 * gets the model class
-	 * @return
+	 * @return Model
 	 */
 	public static Model getModel()
 	{

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import graphics.Game;
 
+/**
+ * This Class represents a Defensive Model whose main goal is to block your every move
+ * @author Rushil Jayant
+ * @version 5/25/21
+ */
 public class DefensiveModel extends Model {
 	
 	public void makeMove() {
@@ -37,7 +42,7 @@ public class DefensiveModel extends Model {
 
 	/**
 	 * 
-	 * @return
+	 * @return Rows that Need to Be Defended
 	 */
 	private ArrayList<Integer> getDefensiveRows()
 	{
@@ -58,7 +63,7 @@ public class DefensiveModel extends Model {
 
 	/**
 	 * 
-	 * @return
+	 * @return Columns where there is a 3 in a row pieces
 	 */
 	private ArrayList<Integer> getImminent()
 	{
@@ -94,9 +99,9 @@ public class DefensiveModel extends Model {
 	
 	/**
 	 * 
-	 * @param r
-	 * @param i
-	 * @return
+	 * @param r Row Array
+	 * @param i Location in the Row
+	 * @return Number of times Human is stacking up in the right side
 	 */
 	private int checkRight(int[] r , int i)
 	{
@@ -142,9 +147,9 @@ public class DefensiveModel extends Model {
 	
 	/**
 	 * 
-	 * @param r
-	 * @param i
-	 * @return
+	 * @param r Row Array
+	 * @param i Location in the Row
+	 * @return Number of times Human is stacking up in the left side
 	 */
 	private int checkLeft(int[] r , int i)
 	{
@@ -190,7 +195,7 @@ public class DefensiveModel extends Model {
 	
 	/**
 	 * 
-	 * @return
+	 * @return Rows that need immediate defending
 	 */
 	private ArrayList<Integer> getDefensiveColumns()
 	{
@@ -211,7 +216,7 @@ public class DefensiveModel extends Model {
 
 	/**
 	 * 
-	 * @return
+	 * @return Columns that can be added to for socre increase
 	 */
 	private ArrayList<Integer> getContinuingRows()
 	{

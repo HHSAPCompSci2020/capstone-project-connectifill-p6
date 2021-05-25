@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import graphics.Game;
 
+/**
+ * This Class represents a Defensive Model whose main goal is to gain the highest score possible
+ * @author Rushil Jayant
+ * @version 5/25/21
+ */
 public class AggressiveModel extends Model {
 	
 	/**
@@ -35,7 +40,7 @@ public class AggressiveModel extends Model {
 
 	/**
 	 * The method finds the next open row
-	 * @return
+	 * @return Rows that need imminent defending
 	 */
 	private ArrayList<Integer> getImminent()
 	{
@@ -71,9 +76,9 @@ public class AggressiveModel extends Model {
 
 	/**
 	 * 
-	 * @param r
-	 * @param i
-	 * @return
+	 * @param r Row Array
+	 * @param i Location in the Row
+	 * @return Number of times Human is stacking up in the right side
 	 */
 	private int checkRight(int[] r , int i)
 	{
@@ -89,7 +94,7 @@ public class AggressiveModel extends Model {
 				return count;
 			}
 		} catch (ArrayIndexOutOfBoundsException ex) {}
-
+		
 		try
 		{
 			if (r[i + 2] == 1)
@@ -112,16 +117,16 @@ public class AggressiveModel extends Model {
 				return count;
 			}
 		} catch (ArrayIndexOutOfBoundsException ex) {}
-
+	
 		return count;
-
+	
 	}
-
+	
 	/**
 	 * 
-	 * @param r
-	 * @param i
-	 * @return
+	 * @param r Row Array
+	 * @param i Location in the Row
+	 * @return Number of times Human is stacking up in the left side
 	 */
 	private int checkLeft(int[] r , int i)
 	{
@@ -137,7 +142,7 @@ public class AggressiveModel extends Model {
 				return count;
 			}
 		} catch (ArrayIndexOutOfBoundsException ex) {}
-
+		
 		try
 		{
 			if (r[i - 2] == 1)
@@ -160,14 +165,14 @@ public class AggressiveModel extends Model {
 				return count;
 			}
 		} catch (ArrayIndexOutOfBoundsException ex) {}
-
+	
 		return count;
-
+	
 	}
-
+	
 	/**
 	 * 
-	 * @return
+	 * @return Rows that Need to Be added to for score increase
 	 */
 	private ArrayList<Integer> getContinuingRows()
 	{
@@ -192,7 +197,7 @@ public class AggressiveModel extends Model {
 
 	/**
 	 * 
-	 * @return
+	 * @return Empty rows that can be added to start a new stack
 	 */
 	private ArrayList<Integer> getEmptyRows()
 	{

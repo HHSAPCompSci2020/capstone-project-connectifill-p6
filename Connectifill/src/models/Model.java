@@ -3,16 +3,20 @@ package models;
 import java.util.ArrayList;
 import graphics.Game;
 
+/**
+ * This is an abstract class representing a model
+ * @author Rushil Jayant
+ * @version 5/25/21
+ */
 public abstract class Model {
 	
 	/**
-	 * 
+	 * Makes the next move based on method's methodology
 	 */
 	public void makeMove() {}
 	
 	/**
-	 * Finds the number of valid rows in the gmae
-	 * @return
+	 * @return Number of Valid Rows
 	 */
 	public ArrayList<Integer> getValidRows()
 	{
