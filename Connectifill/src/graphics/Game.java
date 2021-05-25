@@ -24,7 +24,7 @@ public class Game extends PApplet
 	public Game()
 	{
 		board = new Board(24, 12);
-		model = new DefensiveModel();
+		model = new AggressiveModel();
 		gameState = true;
 		standard = 50;
 	}

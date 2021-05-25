@@ -12,10 +12,16 @@ public class AggressiveModel extends Model {
 
 	@Override
 	public void makeMove() {
+		ArrayList<Integer> imminentColumns = getImminent();
 		ArrayList<Integer> continuingRows = getContinuingRows();
 		ArrayList<Integer> emptyRows = getEmptyRows();
 		ArrayList<Integer> validRows = getValidRows();
-		if (continuingRows.size() != 0)
+
+		if (imminentColumns.size() != 0)
+		{
+			Game.getBoard().add(imminentColumns.get((int) (Math.random() * (imminentColumns.size()))), 2);
+		}
+		else if (continuingRows.size() != 0)
 		{
 			Game.getBoard().add(continuingRows.get((int) (Math.random() * continuingRows.size())), 2);
 		}
@@ -27,6 +33,102 @@ public class AggressiveModel extends Model {
 		{
 			Game.getBoard().add(validRows.get((int) (Math.random() * validRows.size())), 2);
 		}
+	}
+
+	public ArrayList<Integer> getImminent()
+	{
+		ArrayList<Integer> columns = new ArrayList<Integer>();
+
+		for (int x = 0; x < Game.getBoard().getGrid()[0].length; x++) {
+			try
+			{
+				if (Game.getBoard().getGrid()[Game.getBoard().nextOpenRow(x) + 1][x] == 1 && Game.getBoard().getGrid()[Game.getBoard().nextOpenRow(x) + 2][x] == 1 && Game.getBoard().getGrid()[Game.getBoard().nextOpenRow(x) + 3][x] == 1)
+				{
+					columns.add(x);
+					return columns;
+				}
+			} catch (ArrayIndexOutOfBoundsException ex) {}
+		}
+
+		for (int[] r : Game.getBoard().getGrid())
+		{
+			for (int i = 0; i < r.length; i++)
+			{
+				if (r[i] == 0)
+				{
+					if (checkRight(r, i) + checkLeft(r, i) >= 2)
+					{
+						columns.add(i);
+					}
+				}
+			}
+		}
+
+		return columns;
+	}
+
+	private int checkRight(int[] r , int i)
+	{
+		int count = 0;
+		try
+		{
+			if (r[i + 1] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+
+		try
+		{
+			if (r[i + 2] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+		try
+		{
+			if (r[i + 3] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+
+		return count;
+
+	}
+
+	private int checkLeft(int[] r , int i)
+	{
+		int count = 0;
+		try
+		{
+			if (r[i - 1] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+
+		try
+		{
+			if (r[i - 2] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+		try
+		{
+			if (r[i - 3] == 1)
+			{
+				count++;
+			}
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+
+		return count;
+
+	}
+
+	{
+		Game.getBoard();
 	}
 
 	public ArrayList<Integer> getContinuingRows()
@@ -49,7 +151,7 @@ public class AggressiveModel extends Model {
 
 		return rows;
 	}
-	
+
 	// COMPLETE THIS METHOD
 	public ArrayList<Integer> getContinuingColumns()
 	{
