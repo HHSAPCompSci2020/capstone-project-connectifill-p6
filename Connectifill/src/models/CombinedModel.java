@@ -2,14 +2,25 @@ package models;
 
 public class CombinedModel extends Model {
 
+	private AggressiveModel aggressiveModel;
+	private DefensiveModel defensiveModel;
+
 	public CombinedModel() {
-		// TODO Auto-generated constructor stub
+		aggressiveModel = new AggressiveModel();
+		defensiveModel = new DefensiveModel();
 	}
 
 	@Override
 	public void makeMove() {
-		// TODO Auto-generated method stub
-		
+		int random = (int) Math.random() * 2;
+		if (random == 0)
+		{
+			aggressiveModel.makeMove();
+		}
+		else
+		{
+			defensiveModel.makeMove();
+		}
 	}
 
 }
