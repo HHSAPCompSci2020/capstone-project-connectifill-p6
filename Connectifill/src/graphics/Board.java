@@ -1,10 +1,5 @@
 package graphics;
 
-/**
- * This is the Board class which represents a Connectifill Game Board
- * @author Srikar Gudipati
- * @version 5/25/21
- */
 public class Board 
 {
 	private int[][] grid;
@@ -13,7 +8,7 @@ public class Board
 	
 	
 	/**
-	 * Board Class Constructor
+	 * 
 	 * @param width
 	 * @param height
 	 */
@@ -26,7 +21,7 @@ public class Board
 	
 	/**
 	 * 
-	 * @return width
+	 * @return
 	 */
 	public int getWidth()
 	{
@@ -35,7 +30,7 @@ public class Board
 	
 	/**
 	 * 
-	 * @return height
+	 * @return
 	 */
 	public int getHeight()
 	{
@@ -44,7 +39,7 @@ public class Board
 	
 	/**
 	 * 
-	 * @return grid
+	 * @return
 	 */
 	public int[][] getGrid()
 	{
@@ -53,9 +48,9 @@ public class Board
 	
 	/**
 	 * 
-	 * @param c Column Position
-	 * @param r Row Position
-	 * @return Value at the Specified Position
+	 * @param c
+	 * @param r
+	 * @return
 	 */
 	public int getValue(int c, int r)
 	{
@@ -64,8 +59,8 @@ public class Board
 	
 	/**
 	 * 
-	 * @param player - 1 if it is the Human, 2 if it is the Computer
-	 * @return The Score of the Player
+	 * @param player
+	 * @return
 	 */
 	public int getScore(int player)
 	{
@@ -74,9 +69,9 @@ public class Board
 	
 	/**
 	 * 
-	 * @param column intended for player
-	 * @param player who is added to the board
-	 * @return if process went through correctly
+	 * @param column
+	 * @param player
+	 * @return
 	 */
 	public boolean add(int column, int player)
 	{
@@ -93,8 +88,8 @@ public class Board
 	
 	/**
 	 * 
-	 * @param column - place to check if an item can be added
-	 * @return If a piece can be added there
+	 * @param column
+	 * @return
 	 */
 	public boolean addable(int column)
 	{
@@ -115,8 +110,8 @@ public class Board
 	
 	/**
 	 * 
-	 * @param column - place to find the next open row
-	 * @return next open row
+	 * @param column
+	 * @return
 	 */
 	public int nextOpenRow(int column)
 	{
@@ -137,8 +132,8 @@ public class Board
 	
 	/**
 	 * 
-	 * @param player - 1 if Human, 2 if Computer
-	 * @return Horizontal Score
+	 * @param player
+	 * @return
 	 */
 	private int getHorizontalScore(int player)
 	{
@@ -158,8 +153,8 @@ public class Board
 	
 	/**
 	 * 
-	 * @param player - 1 if Human, 2 if Computer
-	 * @return Vertical Score
+	 * @param player
+	 * @return
 	 */
 	private int getVerticalScore(int player)
 	{
@@ -179,8 +174,8 @@ public class Board
 	
 	/**
 	 * 
-	 * @param player - 1 if Human, 2 if Computer
-	 * @return Diagonal Score
+	 * @param player
+	 * @return
 	 */
 	private int getDiagonalScore(int player)
 	{
@@ -210,7 +205,7 @@ public class Board
 	
 	/**
 	 * 
-	 * @return If the board is full
+	 * @return
 	 */
 	public boolean isFull()
 	{
