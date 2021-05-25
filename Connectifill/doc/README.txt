@@ -98,7 +98,7 @@ Class List:
       * CombinedModel
 
 Credits:
-* Rushil Jayant: Worked on README, and Game class for GUI
-* Srikar Gudipati: Worked on README, and Game class for placement of tokens and random generation
+* Rushil Jayant: Worked on README, and Game class for GUI, finished models and menu
+* Srikar Gudipati: Worked on README, and Game class for placement of tokens and random generation, worked on models and menu
 * Mr. Shelby: Helping us formulate our ideas
 * Processing: Will serve as our GUI library to design items
