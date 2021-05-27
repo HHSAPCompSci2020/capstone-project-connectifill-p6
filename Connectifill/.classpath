@@ -7,6 +7,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/processing_core.jar"/>
-	<classpathentry kind="lib" path="Connectifill.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
